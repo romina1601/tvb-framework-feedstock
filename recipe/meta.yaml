@@ -13,32 +13,41 @@ source:
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
-  skip: true  # [py>27]
 
 requirements:
   build:
     - python
     - pip
+    - setuptools
 
   run:
     - python
     - beautifulsoup4
-    - cfflib
     - cherrypy
+    - flask
+    - flask-restplus
     - formencode
-    - genshi
+    - getevent
     - h5py
+    - Jinja2
     - Networkx
     - nibabel
     - pillow
     - psutil
+    - pyAesCrypt
+    - python-keycloak
+    - pyunicore
     - pytest
+    - pytest-benchmark
+    - pytest-mock
+    - scikit-learn
     - scipy
     - simplejson
     - sqlalchemy-migrate
     - sqlalchemy
     - tvb-library
     - tvb-data
+    - tvb-gdist
     - psycopg2
 
 test:
@@ -68,4 +77,4 @@ about:
 extra:
   recipe-maintainers:
     - liadomide
-    - umarbrowser
+    - popaula937
