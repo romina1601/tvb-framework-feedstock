@@ -1,6 +1,6 @@
-{% set name = 'tvb-framework' %}
-{% set version = '1.5.5' %}
-{% set sha256 = "81c6b293bff080f4b52ec2c9ece5a3e109c951eb9dd42b1d90aed00589d4828b" %}
+{% set name = "tvb-framework" %}
+{% set version = "2.0.8" %}
+{% set sha256 = "95a8585b3095eecbdc8ca389269471a350b6876e732f62c260d75b615d10a237" %}
 
 package:
   name: {{ name }}
@@ -11,36 +11,45 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1000
-  script: python -m pip install --no-deps --ignore-installed .
-  skip: True  # [py>27]
+  number: 0
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
   build:
     - python
     - pip
-    
+    - setuptools
+
   run:
     - python
     - beautifulsoup4
-    - cfflib
     - cherrypy
+    - flask
+    - flask-restplus
     - formencode
-    - genshi
+    - getevent
     - h5py
+    - Jinja2
     - Networkx
     - nibabel
     - pillow
     - psutil
+    - pyAesCrypt
+    - python-keycloak
+    - pyunicore
     - pytest
+    - pytest-benchmark
+    - pytest-mock
+    - scikit-learn
     - scipy
     - simplejson
     - sqlalchemy-migrate
     - sqlalchemy
     - tvb-library
     - tvb-data
+    - tvb-gdist
     - psycopg2
-    
+
 test:
   requires:
     - pytest
@@ -52,7 +61,7 @@ about:
   license: GPL-3.0
   license_family: GPL
   license_file: LICENSE
-  summary: 'A package for performing whole brain simulations'
+  summary: A package for performing whole brain simulations
   description: |
     The Virtual Brain Project (TVB Project) has the purpose of offering some |
     modern tools to the Neurosciences community, for computing, simulating |
@@ -68,4 +77,4 @@ about:
 extra:
   recipe-maintainers:
     - liadomide
-    - umarbrowser
+    - popaula937
