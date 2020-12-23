@@ -1,6 +1,6 @@
 {% set name = "tvb-framework" %}
-{% set version = "2.0.8" %}
-{% set sha256 = "95a8585b3095eecbdc8ca389269471a350b6876e732f62c260d75b615d10a237" %}
+{% set version = "2.1" %}
+{% set sha256 = "8ff38a533a01f29ae9b7b243e77258f813b7e552e05a10f6c0b5318aa95cba54" %}
 
 package:
   name: {{ name }}
@@ -15,7 +15,7 @@ build:
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
-  build:
+  host:
     - python
     - pip
     - setuptools
