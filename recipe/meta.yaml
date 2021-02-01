@@ -47,7 +47,7 @@ requirements:
     - six
     - sqlalchemy-migrate
     - sqlalchemy
-    - tvb-library
+    - tvb-library 2.1
     - tvb-data
     - tvb-gdist
     - werkzeug
