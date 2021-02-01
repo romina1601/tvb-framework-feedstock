@@ -48,7 +48,6 @@ requirements:
     - sqlalchemy-migrate
     - sqlalchemy
     - tvb-library 2.1
-    - tvb-data
     - tvb-gdist
     - werkzeug 0.16.1
     - psycopg2
@@ -59,10 +58,16 @@ test:
     - pytest-benchmark
     - pytest-mock
     - beautifulsoup4
+    - mock
+    - unzip
 
   commands:
-    - pip install requests-toolbelt pynrrd simpleitk
+    - pip install requests-toolbelt pynrrd simpleitk wget
     - pip install allensdk --no-deps
+    - python -m wget -o tvb_data.zip https://zenodo.org/record/4263723/files/tvb_data.zip?download=1 
+    - unzip tvb_data.zip -d tvb_data
+    - cd tvb_data
+    - python setup.py develop
     - pytest --pyargs tvb.tests.framework
 
 about:
