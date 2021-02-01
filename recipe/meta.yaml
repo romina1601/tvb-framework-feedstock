@@ -50,7 +50,7 @@ requirements:
     - tvb-library 2.1
     - tvb-data
     - tvb-gdist
-    - werkzeug
+    - werkzeug 0.16.1
     - psycopg2
 
 test:
