@@ -24,42 +24,47 @@ requirements:
     - python
     - beautifulsoup4
     - cherrypy
+    - cryptography
     - flask
     - flask-restplus
     - formencode
-    - getevent
     - h5py
     - Jinja2
-    - Networkx
     - nibabel
     - numpy
+    - pandas
     - pillow
     - psutil
     - pyAesCrypt
     - python-keycloak
-    - pyunicore
     - pytest
     - pytest-benchmark
     - pytest-mock
+    - requests
     - scikit-learn
     - scipy
     - simplejson
+    - six
     - sqlalchemy-migrate
     - sqlalchemy
     - tvb-library
     - tvb-data
     - tvb-gdist
+    - werkzeug
     - psycopg2
 
 test:
   requires:
     - pytest
+    - pytest-benchmark
+    - pytest-mock
+    - beautifulsoup4
   commands:
-    - pytest --pyargs tvb.tests.framework.interfaces.web.controllers.burst_controller_test
+    - pytest --pyargs tvb.tests.framework
 
 about:
   home: http://www.thevirtualbrain.com/
-  license: GPL-3.0
+  license: GPL-3.0-or-later
   license_family: GPL
   license_file: LICENSE
   summary: A package for performing whole brain simulations
@@ -69,11 +74,12 @@ about:
     and analyzing functional and structural data of human brains. |
     The Virtual Brain framework is a complete framework including: |
     -  a plugable workflow manager; |
-    -  a data persistence layer (with a relational DB and File Storage); |
+    -  a data persistence layer (with a relational DB and File Storage HDF5); |
     -  an HTML5 based user interface; |
     -  visualizers for neuro-science related entities.
+    -  REST server and client SDK
   doc_url: http://docs.thevirtualbrain.org/
-  dev_url: https://github.com/the-virtual-brain/tvb-framework
+  dev_url: https://github.com/the-virtual-brain/tvb-root
 
 extra:
   recipe-maintainers:
