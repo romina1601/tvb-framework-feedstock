@@ -59,7 +59,10 @@ test:
     - pytest-benchmark
     - pytest-mock
     - beautifulsoup4
+
   commands:
+    - pip install requests-toolbelt pynrrd simpleitk
+    - pip install allensdk --no-deps
     - pytest --pyargs tvb.tests.framework
 
 about:
