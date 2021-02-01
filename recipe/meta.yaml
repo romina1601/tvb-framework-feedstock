@@ -32,6 +32,7 @@ requirements:
     - Jinja2
     - Networkx
     - nibabel
+    - numpy
     - pillow
     - psutil
     - pyAesCrypt
