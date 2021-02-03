@@ -59,13 +59,12 @@ test:
     - pytest-mock
     - beautifulsoup4
     - mock 3.0.5
-    - unzip
 
   commands:
     - pip install requests-toolbelt pynrrd simpleitk wget
     - pip install allensdk --no-deps
     - python -m wget -o tvb_data.zip https://zenodo.org/record/4263723/files/tvb_data.zip?download=1 
-    - unzip tvb_data.zip -d tvb_data
+    - python -m zipfile -e tvb_data.zip tvb_data
     - cd tvb_data
     - python setup.py develop
     - pytest --pyargs tvb.tests.framework
