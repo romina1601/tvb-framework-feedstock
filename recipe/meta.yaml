@@ -58,7 +58,7 @@ test:
     - pytest-benchmark
     - pytest-mock
     - beautifulsoup4
-    - mock
+    - mock 3.0.5
     - unzip
 
   commands:
