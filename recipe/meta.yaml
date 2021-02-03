@@ -1,6 +1,6 @@
 {% set name = "tvb-framework" %}
-{% set version = "2.0.8" %}
-{% set sha256 = "95a8585b3095eecbdc8ca389269471a350b6876e732f62c260d75b615d10a237" %}
+{% set version = "2.1" %}
+{% set sha256 = "8ff38a533a01f29ae9b7b243e77258f813b7e552e05a10f6c0b5318aa95cba54" %}
 
 package:
   name: {{ name }}
@@ -15,7 +15,7 @@ build:
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
-  build:
+  host:
     - python
     - pip
     - setuptools
@@ -24,41 +24,54 @@ requirements:
     - python
     - beautifulsoup4
     - cherrypy
+    - cryptography
     - flask
     - flask-restplus
     - formencode
-    - getevent
     - h5py
     - Jinja2
-    - Networkx
     - nibabel
+    - numpy
+    - pandas
     - pillow
     - psutil
     - pyAesCrypt
     - python-keycloak
-    - pyunicore
     - pytest
     - pytest-benchmark
     - pytest-mock
+    - requests
     - scikit-learn
     - scipy
     - simplejson
+    - six
     - sqlalchemy-migrate
     - sqlalchemy
-    - tvb-library
-    - tvb-data
+    - tvb-library 2.1
     - tvb-gdist
+    - werkzeug 0.16.1
     - psycopg2
 
 test:
   requires:
     - pytest
+    - pytest-benchmark
+    - pytest-mock
+    - beautifulsoup4
+    - mock 3.0.5
+
   commands:
-    - pytest --pyargs tvb.tests.framework.interfaces.web.controllers.burst_controller_test
+    - pip install requests-toolbelt pynrrd simpleitk wget
+    - pip install allensdk --no-deps
+    - python -m wget -o tvb_data.zip https://zenodo.org/record/4263723/files/tvb_data.zip?download=1 
+    - python -m zipfile -e tvb_data.zip tvb_data
+    - cd tvb_data
+    - python setup.py develop
+    - pytest -o mock_use_standalone_module=true --pyargs tvb.tests.framework
 
 about:
   home: http://www.thevirtualbrain.com/
-  license: GPL-3.0
+  license: GPL-3.0-or-later
   license_family: GPL
   license_file: LICENSE
   summary: A package for performing whole brain simulations
@@ -68,11 +81,12 @@ about:
     and analyzing functional and structural data of human brains. |
     The Virtual Brain framework is a complete framework including: |
     -  a plugable workflow manager; |
-    -  a data persistence layer (with a relational DB and File Storage); |
+    -  a data persistence layer (with a relational DB and File Storage HDF5); |
     -  an HTML5 based user interface; |
     -  visualizers for neuro-science related entities.
+    -  REST server and client SDK
   doc_url: http://docs.thevirtualbrain.org/
-  dev_url: https://github.com/the-virtual-brain/tvb-framework
+  dev_url: https://github.com/the-virtual-brain/tvb-root
 
 extra:
   recipe-maintainers:
