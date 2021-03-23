@@ -22,6 +22,7 @@ requirements:
 
   run:
     - python
+    - alembic
     - beautifulsoup4
     - cherrypy
     - cryptography
@@ -45,9 +46,8 @@ requirements:
     - scipy
     - simplejson
     - six
-    - sqlalchemy-migrate
     - sqlalchemy
-    - tvb-library 2.1
+    - tvb-library 2.2
     - tvb-gdist
     - werkzeug 0.16.1
     - psycopg2
