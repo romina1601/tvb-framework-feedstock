@@ -47,8 +47,9 @@ requirements:
     - simplejson
     - six
     - sqlalchemy
-    - tvb-library 2.2
+    - tvb-library
     - tvb-gdist
+    - tvb-storage
     - werkzeug 0.16.1
     - psycopg2
 
@@ -60,7 +61,7 @@ test:
     - pytest-mock
     - beautifulsoup4
     - mock 3.0.5
-
+  
   commands:
     - pip install requests-toolbelt pynrrd simpleitk wget
     - pip install allensdk --no-deps
@@ -68,7 +69,11 @@ test:
     - python -m zipfile -e tvb_data.zip tvb_data
     - cd tvb_data
     - python setup.py develop
-    - pytest -o mock_use_standalone_module=true --pyargs tvb.tests.framework
+# TODO: uncomment tests when tvb-storage will contain the tests module
+#     - pytest -o mock_use_standalone_module=true --pyargs tvb.tests.framework
+
+  imports:
+    - tvb.core.adapters
 
 about:
   home: http://www.thevirtualbrain.com/
