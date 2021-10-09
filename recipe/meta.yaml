@@ -1,6 +1,6 @@
 {% set name = "tvb-framework" %}
-{% set version = "2.3" %}
-{% set sha256 = "0f3386135cdbd80bfd7d31f2e056b015a27ff6d081492db16274deed581b0aac" %}
+{% set version = "2.4" %}
+{% set sha256 = "af75c07e35565cfcf12e6a9052934c58a45c855455cec2f2cd3bd47fdf90e31d" %}
 
 package:
   name: {{ name }}
@@ -61,7 +61,7 @@ test:
     - pytest-mock
     - beautifulsoup4
     - mock 3.0.5
-  
+
   commands:
     - pip install requests-toolbelt pynrrd simpleitk wget
     - pip install allensdk --no-deps
