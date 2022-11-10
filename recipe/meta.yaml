@@ -52,9 +52,8 @@ requirements:
     - matplotlib 3.5.3
     - psycopg2
     - docutils
-    - allensdk
+    - allensdk 0.16.3
     - gevent
-    - bctpy
 
 test:
   requires:
