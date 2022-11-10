@@ -23,11 +23,10 @@ requirements:
   run:
     - python
     - alembic
-    - beautifulsoup4
     - cherrypy
     - cryptography
     - flask
-    - flask-restplus
+    - flask-restx
     - formencode
     - h5py
     - Jinja2
@@ -39,8 +38,6 @@ requirements:
     - pyAesCrypt
     - python-keycloak
     - pytest
-    - pytest-benchmark
-    - pytest-mock
     - requests
     - scikit-learn
     - scipy
@@ -48,10 +45,16 @@ requirements:
     - six
     - sqlalchemy
     - tvb-library
+    - tvb-data
     - tvb-gdist
     - tvb-storage
-    - werkzeug 0.16.1
+    - werkzeug 2.1.2
+    - matplotlib 3.5.3
     - psycopg2
+    - docutils
+    - allensdk
+    - gevent
+    - bctpy
 
 test:
   requires:
@@ -60,7 +63,6 @@ test:
     - pytest-benchmark
     - pytest-mock
     - beautifulsoup4
-    - mock 3.0.5
 
   commands:
     - pip install requests-toolbelt pynrrd simpleitk wget
@@ -69,8 +71,7 @@ test:
     - python -m zipfile -e tvb_data.zip tvb_data
     - cd tvb_data
     - python setup.py develop
-# TODO: uncomment tests when tvb-storage will contain the tests module
-#     - pytest -o mock_use_standalone_module=true --pyargs tvb.tests.framework
+    - pytest -o mock_use_standalone_module=true --pyargs tvb.tests.framework
 
   imports:
     - tvb.core.adapters
