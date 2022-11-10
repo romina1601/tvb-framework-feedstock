@@ -52,7 +52,6 @@ requirements:
     - matplotlib 3.5.3
     - psycopg2
     - docutils
-    - allensdk 0.16.3
     - gevent
 
 test:
