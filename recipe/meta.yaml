@@ -61,6 +61,7 @@ test:
     - pytest-benchmark
     - pytest-mock
     - beautifulsoup4
+    - mock
 
   commands:
     - pip install requests-toolbelt pynrrd simpleitk wget
