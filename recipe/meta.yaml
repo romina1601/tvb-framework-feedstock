@@ -53,6 +53,7 @@ requirements:
     - psycopg2
     - docutils
     - gevent
+    - watchdog
 
 test:
   requires:
