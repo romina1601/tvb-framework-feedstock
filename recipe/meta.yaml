@@ -72,7 +72,7 @@ test:
     - python -m zipfile -e tvb_data.zip tvb_data
     - cd tvb_data
     - python setup.py develop
-    - pytest -o mock_use_standalone_module=true --pyargs tvb.tests.framework --ignore-glob=**bids_monitor_test.py
+    - pytest -o mock_use_standalone_module=true --pyargs tvb.tests.framework --ignore=interfaces/rest/bids_monitor_test.py
 
   imports:
     - tvb.core.adapters
@@ -100,3 +100,5 @@ extra:
   recipe-maintainers:
     - liadomide
     - popaula937
+    - romina1601
+    
